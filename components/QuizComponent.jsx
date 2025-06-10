@@ -3,9 +3,10 @@
 import Link from 'next/link';
 import { useState, useEffect } from "react";
 
-const QuizComponent = ({ data, openQuiz, setOpenQuiz, setCorrect }) => {
+const QuizComponent = ({ data, openQuiz, setOpenQuiz, setOpen }) => {
   const [answer, setAnswer] = useState('');
   const [feedback, setFeedback] = useState('');
+  const [readyToOpen, setReadyToOpen] = useState(false);
 
   const correctAnswer = data.correct_answer; // use from data
 
@@ -20,11 +21,18 @@ const QuizComponent = ({ data, openQuiz, setOpenQuiz, setCorrect }) => {
   const handleSubmit = (selectedAnswer) => {
     if (selectedAnswer === correctAnswer) {
       setFeedback(data.reward);
-      setCorrect();
+      setReadyToOpen(true);
     } else {
       setFeedback('Wrong!');
     }
   };
+
+  const handleGoBack = () => {
+    setOpenQuiz(false);
+    if (readyToOpen) {
+      setOpen(true);
+    }
+  }
 
   return openQuiz ? (
     <div className="fixed top-0 left-0 right-0 z-[9999] h-screen overflow-auto min-h-screen bg-gray-900 text-white flex flex-col items-center p-4">
@@ -79,7 +87,7 @@ const QuizComponent = ({ data, openQuiz, setOpenQuiz, setCorrect }) => {
 
       <button
         className="w-full max-w-xs px-4 py-4 mb-4 bg-purple-600 text-white rounded-lg font-semibold hover:bg-pink-500 transition-colors"
-        onClick={() => setOpenQuiz(false)}
+        onClick={() => handleGoBack()}
       >
         Go Back
       </button>

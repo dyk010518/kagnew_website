@@ -37,6 +37,7 @@
     "question": null,
     "answer_choices": null,
     "correct_answer": null,
-    "reward": "You have arrived. Stand directly in front of the Palgakjeong (팔각정) pavilion with the N Seoul Tower behind you. To your left, you will see a series of stone benches. Walk to the third bench. Behind this bench is a small grove of three pine trees. The time capsule is buried at the base of the middle tree, beneath a flat, grey stone marked only with the carving of a single dove. The legacy is in your hands."
+    "reward": "You have arrived. Stand directly in front of the Palgakjeong (팔각정) pavilion with the N Seoul Tower behind you. To your left, you will see a series of stone benches. Walk to the third bench. Behind this bench is a small grove of three pine trees. The time capsule is buried at the base of the middle tree, beneath a flat, grey stone marked only with the carving of a single dove. The legacy is in your hands.",
+    "image_path": "/button_images/image_4.png"
   }
 ]

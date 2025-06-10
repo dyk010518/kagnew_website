@@ -5,27 +5,50 @@ import PlaceButton from "@/components/PlaceButton";
 import TimeCapsureButton from "@/components/TimeCapsureButton";
 
 export default function PlacesPage() {
-  const [placeOne, setPlaceOne] = useState(true); // always unlocked
-  const [placeTwo, setPlaceTwo] = useState(false);
-  const [placeThree, setPlaceThree] = useState(false);
-  const [placeFour, setPlaceFour] = useState(false);
-  const [placeFive, setPlaceFive] = useState(false);
+  const [placeOneOpen, openPlaceOne] = useState(true); // always unlocked
+  const [placeTwoOpen, openPlaceTwo] = useState(false);
+  const [placeThreeOpen, openPlaceThree] = useState(false);
+  const [placeFourOpen, openPlaceFour] = useState(false);
+  const [placeFiveOpen, openPlaceFive] = useState(false);
+
+  const [placeOneSettle, settlePlaceOne] = useState(false); // always unlocked
+  const [placeTwoSettle, settlePlaceTwo] = useState(false);
+  const [placeThreeSettle, settlePlaceThree] = useState(false);
+  const [placeFourSettle, settlePlaceFour] = useState(false);
+  const [placeFiveSettle, settlePlaceFive] = useState(false);
 
   const openList = [
-    placeOne,
-    placeTwo,
-    placeThree,
-    placeFour,
-    placeFive
+    placeOneOpen,
+    placeTwoOpen,
+    placeThreeOpen,
+    placeFourOpen,
+    placeFiveOpen,
   ]
 
-  const setPlaceFunctions = [
-    () => setPlaceTwo(true),
-    () => setPlaceThree(true),
-    () => setPlaceFour(true), 
-    () => setPlaceFive(true), 
+  const settleList = [
+    placeOneSettle,
+    placeTwoSettle,
+    placeThreeSettle,
+    placeFourSettle,
+    placeFiveSettle,
+  ]
+
+  const openPlaceFunctions = [
+    () => openPlaceTwo(true),
+    () => openPlaceThree(true),
+    () => openPlaceFour(true), 
+    () => openPlaceFive(true), 
     null,
   ];
+
+  const settlePlaceFunctions = [
+    () => settlePlaceOne(true),
+    () => settlePlaceTwo(true),
+    () => settlePlaceThree(true),
+    () => settlePlaceFour(true), 
+    () => settlePlaceFive(true), 
+  ];
+
   const [placeData, setPlaceData] = useState([]);
 
   useEffect(() => {
@@ -46,20 +69,24 @@ export default function PlacesPage() {
 
         {/* Buttons */}
         {placeData && (
-          <div className="w-full space-y-4 max-w-md">
+          <div className="w-full space-y-8 max-w-md">
             {placeData.slice(0, -1).map((data, index) => (
               <PlaceButton
                 key={index}
                 data={data}
                 open={openList[index]}
-                setCorrect = {() => setPlaceFunctions[index]()}
+                settled={settleList[index]}
+                setOpen = {() => openPlaceFunctions[index]()}
+                setSettled={() => settlePlaceFunctions[index]()}
               ></PlaceButton>
             ))}
 
             <TimeCapsureButton
               data={placeData[placeData.length-1]}
               open={openList[openList.length-1]}
-              setCorrect = {() => setPlaceFunctions[setPlaceFunctions.length-1]()}
+              settled={settleList[settleList.length-1]}
+              setOpen = {() => openPlaceFunctions[openPlaceFunctions.length-1]()}
+              setSettled={() => settlePlaceFunctions[settlePlaceFunctions.length-1]()}
             ></TimeCapsureButton>
           </div>
 
