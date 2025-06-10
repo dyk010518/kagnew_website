@@ -14,7 +14,7 @@ const StartButton = ({ data, open, setCorrect }) => {
     
     setTimeout(() => {
       router.push('/places');
-    }, 1000);
+    }, 300);
   };
 
   return (
@@ -25,10 +25,12 @@ const StartButton = ({ data, open, setCorrect }) => {
         duration: 0.3,
         ease: "easeOut"
       }}
-      style={{ maxWidth: '220px', width: '100%' }}
-      className="inline-block px-10 py-3 rounded-full bg-gradient-to-br from-tertiary-500 via-primary-500 to-secondary-500 hover:from-tertiary-700 hover:via-primary-700 hover:to-secondary-700 text-white text-center transition duration-300"
+      // --- MODIFICATIONS FOR SMALLER BUTTON START ---
+      style={{ maxWidth: '80px', width: '100%' }} // Reduced maxWidth
+      className="inline-block px-5 py-2 mb-8 rounded-lg bg-gradient-to-br from-tertiary-500 via-primary-500 to-secondary-500 hover:from-tertiary-700 hover:via-primary-700 hover:to-secondary-700 text-white text-center text-sm transition duration-300" // Reduced padding (py-2), added text-sm for smaller font
+      // --- MODIFICATIONS FOR SMALLER BUTTON END ---
     >
-      Start Playing
+      Start
     </motion.button>
   );
 };
