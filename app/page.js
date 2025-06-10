@@ -1,25 +1,25 @@
-import Link from 'next/link';
+import React from 'react';
+import StartButton from '@/components/StartButton';
+
+
 export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col bg-[#010f18]">
-      <div className=" text-white flex flex-col items-center justify-between p-4">
-        <h1 className="text-2xl font-bold mt-12 text-center">
-          Kagnew Scavenger Hunt
+    <main className="flex min-h-screen flex-col bg-gradient-to-b from-[#011627] to-[#010f18] text-white px-6 py-12">
+      <div className="flex flex-col items-center justify-center max-w-md mx-auto w-full">
+        <h1 className="text-3xl font-extrabold text-center tracking-wide mb-10 drop-shadow-md">
+          Kagnew Time Capsule <br /> Scavenger Hunt
         </h1>
 
         {/* Image Placeholder */}
-        <div className="w-full max-w-xs mt-8">
-          <div className="w-full aspect-square bg-gray-700 rounded-lg flex items-center justify-center">
-            <span className="text-gray-400">Image Placeholder</span>
-          </div>
+        <div className="w-full max-w-xs aspect-square rounded-2xl bg-gradient-to-tr from-gray-800 via-gray-900 to-gray-700 shadow-lg flex items-center justify-center mb-12">
+          <span className="text-gray-400 text-lg font-light select-none">
+            Image Placeholder
+          </span>
         </div>
 
         {/* Start Playing Button */}
-        <Link href="/places">
-          <button className="w-full max-w-xs mt-10 mb-4 px-6 py-3 bg-purple-600 rounded-lg text-white font-semibold hover:bg-pink-500 transition-colors duration-200">
-            Start Playing
-          </button>
-        </Link>
+        <StartButton />
+        
       </div>
     </main>
   );
