@@ -1,3 +1,4 @@
+"use client";
 import Link from 'next/link';
 import QuizComponent from './QuizComponent';
 import { useState, useEffect } from "react";
@@ -6,17 +7,33 @@ import { motion } from 'framer-motion';
 const PlaceButton = ({ data, open, settled, setOpen, setSettled }) => {
   const [openQuiz, setOpenQuiz] = useState(false);
 
-  // State 1: Locked (not open)
+  // Common styles for the active/interactive button states (settled and transitioning)
+  const activeBoxStyles = {
+    boxShadow: '0 0 15px rgba(255, 255, 255, 0.15), 0 0 30px rgba(255, 255, 255, 0.08)', // Subtle white shadow
+    border: '1px solid rgba(255, 255, 255, 0.4)' // Light border
+  };
+
+  // State 1: Locked (not open) - Hover effects removed
   if (!open) {
     return (
-      <>
-        <button
-          className="w-full py-4 bg-gray-700 text-gray-400 rounded-lg font-semibold cursor-not-allowed"
-          disabled
-        >
-          🔒
-        </button>
-      </>
+      <button
+        // Removed 'group' class here
+        className="relative w-full py-4 rounded-lg font-semibold cursor-not-allowed overflow-hidden" 
+        style={{
+          backgroundImage: `url(${data.image_path})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          filter: "grayscale(100%) brightness(0.4) blur(2px)",
+          ...activeBoxStyles
+        }}
+        disabled
+      >
+        {/* Removed group-hover classes */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-40 transition-opacity duration-300">
+          <span className="text-4xl text-gray-300 mb-2 transition-transform duration-300">🔒</span>
+          <span className="text-lg text-gray-300 font-medium opacity-80">Locked</span>
+        </div>
+      </button>
     );
   }
 
@@ -25,8 +42,11 @@ const PlaceButton = ({ data, open, settled, setOpen, setSettled }) => {
     return (
       <>
         <motion.button
-          className="w-full py-4 mb-4 text-white rounded-lg font-semibold bg-cover bg-center transition-colors hover:opacity-90 relative overflow-hidden"
-          style={{ backgroundImage: `url(${data.image_path})` }}
+          className="w-full py-4 text-white rounded-lg font-semibold bg-cover bg-center transition-colors hover:opacity-90 relative overflow-hidden"
+          style={{ 
+            backgroundImage: `url(${data.image_path})`,
+            ...activeBoxStyles
+          }}
           initial={{ 
             scale: 0.95,
             opacity: 0.7,
@@ -45,8 +65,6 @@ const PlaceButton = ({ data, open, settled, setOpen, setSettled }) => {
             setOpenQuiz(true)
             setSettled(true)}
           }
-          // You can enable this if you want to prevent clicks during animation
-          // disabled={isTransitioning}
         >
           <motion.div 
             className="bg-black bg-opacity-50 p-2 rounded"
@@ -72,8 +90,11 @@ const PlaceButton = ({ data, open, settled, setOpen, setSettled }) => {
   return (
     <>
       <button 
-        className="w-full py-4 mb-4 text-white rounded-lg font-semibold bg-cover bg-center transition-colors hover:opacity-90"
-        style={{ backgroundImage: `url(${data.image_path})` }}
+        className="w-full py-4 text-white rounded-lg font-semibold bg-cover bg-center transition-colors hover:opacity-90"
+        style={{ 
+          backgroundImage: `url(${data.image_path})`,
+          ...activeBoxStyles
+        }}
         onClick={() => setOpenQuiz(true)}
       >
         <div className="bg-black bg-opacity-50 p-2 rounded">{data.location}</div>

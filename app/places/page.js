@@ -68,7 +68,7 @@ export default function PlacesPage() {
         </div>
 
         {/* Buttons */}
-        {placeData && (
+        {placeData.length > 0 && (
           <div className="w-full space-y-8 max-w-md">
             {placeData.slice(0, -1).map((data, index) => (
               <PlaceButton

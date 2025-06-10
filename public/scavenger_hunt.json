@@ -1,6 +1,6 @@
 [
   {
-    "location": "The War Memorial of Korea (Yongsan-gu)",
+    "location": "The War Memorial of Korea (전쟁기념관)",
     "question": "Find the large 'Statue of Brothers,' which depicts two soldiers from the North and South embracing on the battlefield. Look closely at the cracked dome they are standing on. What is the last name engraved in English on the bronze plaque dedicated to Major General William F. Dean, located directly on the back of this dome?",
     "answer_choices": ["Smith", "Walker", "Dean", "MacArthur"],
     "correct_answer": "Dean",
@@ -8,7 +8,7 @@
     "image_path": "/button_images/image_0.png"
   },
   {
-    "location": "Seoul National Cemetery (Dongjak-gu)",
+    "location": "Seoul National Cemetery (서울현충원)",
     "question": "Enter the Memorial Hall beneath the large Memorial Tower. Inside, you will find stone tablets with the names of the missing. On the circular wall behind the central incense burner, there is a large, engraved mural depicting scenes of battle. In the very center of this mural, what is the soldier in the foreground holding in his right hand?",
     "answer_choices": ["A flag", "A rifle with a bayonet", "A bugle", "A map"],
     "correct_answer": "A rifle with a bayonet",
@@ -16,16 +16,16 @@
     "image_path": "/button_images/image_1.png"
   },
   {
-    "location": "Hangang Bridge (Hangangdaegyo)",
+    "location": "Hangang Bridge (한강대교)",
     "question": "Walk onto the eastern pedestrian walkway of the Hangang Bridge from the south (Nodeul Island side). A short way onto the bridge, you will find a small, dark stone memorial dedicated to the soldiers and police who died defending the Han River line in 1950. According to the main inscription (in Korean/Hanja), how many days did their defense of the river line last?",
-    "answer_choices": ["One Day (1일간)", "Three Days (3일간)", "Six Days (6일간)", "Ten Days (10일간)"],
-    "correct_answer": "Six Days (6일간)",
+    "answer_choices": ["One Day", "Three Days", "Six Days", "Ten Days"],
+    "correct_answer": "Six Days",
     "reward": "Correct. Six days of valor that shaped history. Now, journey to the symbolic heart of the city they were defending, a place that now thrives with civic life.",
     "image_path": "/button_images/image_2.png"
 
   },
   {
-    "location": "Seoul Plaza (in front of City Hall)",
+    "location": "Seoul Plaza (서울광장)",
     "question": "Stand in the center of the grassy Seoul Plaza, facing the new City Hall building. Carefully search the plaza grounds for a small, square bronze plaque on the ground that marks the historical location of City Hall's cornerstone. What is the first date (Year, Month, Day) written on this plaque?",
     "answer_choices": ["1919. 3. 1", "1945. 8. 15", "1926. 8. 31", "1950. 6. 25"],
     "correct_answer": "1926. 8. 31",
@@ -33,7 +33,7 @@
     "image_path": "/button_images/image_3.png"
   },
   {
-    "location": "Namsan Park (near the Palgakjeong Pavilion)",
+    "location": "Namsan Park (남산공원)",
     "question": null,
     "answer_choices": null,
     "correct_answer": null,

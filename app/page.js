@@ -67,7 +67,7 @@ export default function Page() {
             }}
           >
             <Image
-              src="/home_image.png"
+              src="/home.png"
               alt="home image"
               className="w-4/5 h-4/5 object-cover rounded-2xl"
               style={{
@@ -96,8 +96,8 @@ export default function Page() {
           background-color: #010f18;
           background-image:
             radial-gradient(rgba(255, 255, 255, 0.9) 1px, transparent 0),
-            radial-gradient(rgba(255, 255, 255, 0.7) 1.5px, transparent 0),
-            radial-gradient(rgba(255, 255, 255, 0.5) 2px, transparent 0);
+            radial-gradient(rgba(255, 255, 255, 0.7) 2px, transparent 0),
+            radial-gradient(rgba(255, 255, 255, 0.5) 3px, transparent 0);
           background-size:
             50px 50px,
             75px 75px,
