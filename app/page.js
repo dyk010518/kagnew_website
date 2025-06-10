@@ -3,9 +3,8 @@
 import React from 'react';
 import StartButton from '@/components/StartButton';
 import Image from 'next/image';
-
-// Import Montserrat font
 import { Montserrat } from 'next/font/google';
+import { motion } from 'framer-motion'; // Import motion from framer-motion
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -14,25 +13,54 @@ const montserrat = Montserrat({
 });
 
 export default function Page() {
+  // Define animation variants for framer-motion
+  const fadeInRise = {
+    initial: { opacity: 0, y: 0 }, // Starts invisible and slightly below its final position
+    animate: { opacity: 1, y: 0 },  // Fades in and moves to its final position
+  };
+
+  const imageFadeInRise = {
+    initial: { opacity: 0, y: 30 }, // Starts invisible and further below for a more pronounced rise
+    animate: { opacity: 1, y: 0 },
+  };
+
   return (
-    // Outer div for the starry background to cover the whole viewport
     <div className="relative w-full min-h-screen overflow-hidden">
       {/* Starry Background Layer */}
       <div className="absolute inset-0 z-0 stars-background"></div>
 
       {/* Main content, layered above the stars */}
-      {/* Increased transparency of main background gradient (from /90 to /80) */}
       <main className={`relative z-10 flex min-h-screen flex-col bg-gradient-to-b from-[#011627]/80 to-[#010f18]/80 text-white px-6 py-12 ${montserrat.variable}`}>
         <div className="flex flex-col items-center justify-center max-w-md mx-auto w-full mt-16">
-          <h1
-            className={`font-montserrat text-3xl sm:text-5xl lg:text-6xl font-extrabold text-center tracking-tight mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 animate-pulse-slow title-subtle-glow`}
+
+          {/* Title with fade-in and slight upward movement */}
+          <motion.h1
+            variants={fadeInRise}
+            initial="initial"
+            animate="animate"
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }} // Animation duration, ease, and initial delay
+            className={`font-montserrat text-4xl sm:text-5xl lg:text-6xl font-extrabold text-center tracking-tight mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 animate-pulse-slow title-subtle-glow`}
           >
             Kagnew <br/> Scavenger Hunt
-          </h1>
+          </motion.h1>
 
-          <StartButton />
+          {/* Start Button with fade-in and slight upward movement */}
+          {/* Wrap StartButton in a motion.div to apply shared animation logic */}
+          <motion.div
+            variants={fadeInRise}
+            initial="initial"
+            animate="animate"
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }} // Slightly later delay for button
+          >
+            <StartButton />
+          </motion.div>
 
-          <div
+          {/* Image wrapper with fade-in and upward movement */}
+          <motion.div
+            variants={imageFadeInRise}
+            initial="initial"
+            animate="animate"
+            transition={{ duration: 1, ease: "easeOut", delay: 1.2 }} // Animation starts after title/button are mostly done
             className="relative w-3/4 max-w-xs aspect-square rounded-2xl flex items-center justify-center mb-12 transform hover:scale-105 transition-transform duration-500 ease-in-out"
             style={{
               perspective: '800px',
@@ -41,17 +69,17 @@ export default function Page() {
             <Image
               src="/home_image.png"
               alt="home image"
-              className="w-full h-full object-cover rounded-2xl"
+              className="w-4/5 h-4/5 object-cover rounded-2xl"
               style={{
                 transform: 'rotateX(15deg)',
                 transformOrigin: 'bottom center',
                 boxShadow: '0 3px 10px rgba(0, 200, 255, 0.4), 0 0 30px rgba(0, 200, 255, 0.2)',
-                animation: 'float 3s ease-in-out infinite',
+                animation: 'float 3s ease-in-out infinite', // Keep the existing floating animation
               }}
               width={400}
               height={400}
             />
-          </div>
+          </motion.div>
 
         </div>
       </main>
@@ -67,10 +95,9 @@ export default function Page() {
         .stars-background {
           background-color: #010f18;
           background-image:
-            /* Made dot size larger (e.g., 1px, 1.5px, 2px) and opacities slightly higher */
-            radial-gradient(rgba(255, 255, 255, 0.9) 1px, transparent 0), /* Smallest, brightest */
-            radial-gradient(rgba(255, 255, 255, 0.7) 1.5px, transparent 0), /* Medium */
-            radial-gradient(rgba(255, 255, 255, 0.5) 2px, transparent 0); /* Largest, dimmest */
+            radial-gradient(rgba(255, 255, 255, 0.9) 1px, transparent 0),
+            radial-gradient(rgba(255, 255, 255, 0.7) 1.5px, transparent 0),
+            radial-gradient(rgba(255, 255, 255, 0.5) 2px, transparent 0);
           background-size:
             50px 50px,
             75px 75px,
