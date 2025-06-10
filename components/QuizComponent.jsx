@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const QuizComponent = ({ data, openQuiz, setOpenQuiz, setCorrect }) => {
   const [answer, setAnswer] = useState('');
@@ -9,10 +9,16 @@ const QuizComponent = ({ data, openQuiz, setOpenQuiz, setCorrect }) => {
 
   const correctAnswer = data.correct_answer; // use from data
 
+  useEffect(() => {
+    if (openQuiz) {
+      setAnswer('');
+      setFeedback('');
+    }
+  }, [openQuiz]);
+
   // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (answer === correctAnswer) {
+  const handleSubmit = (selectedAnswer) => {
+    if (selectedAnswer === correctAnswer) {
       setFeedback(data.reward);
       setCorrect();
     } else {
@@ -35,33 +41,34 @@ const QuizComponent = ({ data, openQuiz, setOpenQuiz, setCorrect }) => {
       </h2>
 
       {/* Multiple Choice Options */}
-      <form onSubmit={handleSubmit} className="w-full max-w-xs mt-6 flex flex-col items-center space-y-4">
+      <div className='space-y-4'>
         {data.answer_choices.map((choice, index) => (
-          <label
-            key={index}
-            className={`w-full px-4 py-2 rounded-lg border cursor-pointer ${
-              answer === choice ? 'bg-purple-600 border-purple-500' : 'bg-gray-800 border-gray-700'
-            }`}
-          >
-            <input
-              type="radio"
-              name="answer"
-              value={choice}
-              checked={answer === choice}
-              onChange={() => setAnswer(choice)}
-              className="hidden"
-            />
-            {choice}
-          </label>
-        ))}
-
         <button
-          type="submit"
-          className="w-full px-6 py-3 bg-purple-600 rounded-lg text-white font-semibold hover:bg-pink-500 transition-colors duration-200"
+          key={index}
+          onClick={() => {
+            setAnswer(choice);
+            handleSubmit(choice);
+          }}
+          className={`w-full max-w-xs px-4 py-2 rounded-lg border cursor-pointer ${
+            answer === choice ? 'bg-purple-600 border-purple-500' : 'bg-gray-800 border-gray-700'
+          }`}
         >
-          Submit
-        </button>
-      </form>
+          <input
+            type="radio"
+            name="answer"
+            value={choice}
+            checked={answer === choice}
+            onChange={() => setAnswer(choice)}
+            className="hidden"
+          />
+          {choice}
+        </button>))}
+      </div>
+
+    
+
+
+
 
       {/* Feedback Message */}
       {feedback && (

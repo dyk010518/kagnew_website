@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import PlaceButton from "@/components/PlaceButton";
+import TimeCapsureButton from "@/components/TimeCapsureButton";
 
 export default function PlacesPage() {
   const [placeOne, setPlaceOne] = useState(true); // always unlocked
@@ -32,14 +33,6 @@ export default function PlacesPage() {
       .then(res => res.json())
       .then(data => setPlaceData(data));
   }, []);
-  console.log(placeData);
-
-  // useEffect(() => {
-  //   // Ensure state updates happen after hydration
-  //   setPlaceTwo(false);
-  //   setPlaceThree(false);
-  //   setPlaceFour(false);
-  // }, []);
 
   return (
     <main className="flex min-h-screen flex-col bg-[#010f18]">
@@ -52,15 +45,27 @@ export default function PlacesPage() {
         </div>
 
         {/* Buttons */}
-        <div className="w-full space-y-4 max-w-md">
-          {placeData.map((data, index) => (
-            <PlaceButton
-              key={index}
-              data={data}
-              open={openList[index]}
-              setCorrect = {() => setPlaceFunctions[index]()}
-            ></PlaceButton>))}
-        </div>
+        {placeData && (
+          <div className="w-full space-y-4 max-w-md">
+            {placeData.slice(0, -1).map((data, index) => (
+              <PlaceButton
+                key={index}
+                data={data}
+                open={openList[index]}
+                setCorrect = {() => setPlaceFunctions[index]()}
+              ></PlaceButton>
+            ))}
+
+            <TimeCapsureButton
+              data={placeData[placeData.length-1]}
+              open={openList[openList.length-1]}
+              setCorrect = {() => setPlaceFunctions[setPlaceFunctions.length-1]()}
+            ></TimeCapsureButton>
+          </div>
+
+          
+        )}
+
       </div>
     </main>
 
