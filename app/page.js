@@ -1,5 +1,6 @@
 import React from 'react';
 import StartButton from '@/components/StartButton';
+import Image from 'next/image';
 
 
 export default function Page() {
@@ -11,15 +12,18 @@ export default function Page() {
         </h1>
 
         {/* Image Placeholder */}
-        <div className="w-full max-w-xs aspect-square rounded-2xl bg-gradient-to-tr from-gray-800 via-gray-900 to-gray-700 shadow-lg flex items-center justify-center mb-12">
-          <span className="text-gray-400 text-lg font-light select-none">
-            Image Placeholder
-          </span>
-        </div>
+        <Image 
+          src="/home_image.png"
+          alt="home image"
+          className="w-3/4 max-w-xs aspect-square rounded-2xl bg-gradient-to-tr from-gray-800 via-gray-900 to-gray-700 shadow-lg flex items-center justify-center mb-12"
+          // className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 object-cover"
+          width={400}
+          height={400}
+        />
 
         {/* Start Playing Button */}
         <StartButton />
-        
+
       </div>
     </main>
   );
