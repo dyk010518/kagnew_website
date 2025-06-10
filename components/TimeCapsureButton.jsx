@@ -40,7 +40,7 @@ const TimeCapsuleButton = ({ data, open, settled, setOpen, setSettled }) => {
     return (
       <Link href="/ending" className="w-full"> {/* Ensure Link covers the whole button width */}
         <motion.button
-          className="w-full py-4 mb-4 text-white rounded-lg font-semibold bg-cover bg-center transition-colors hover:opacity-90 relative overflow-hidden"
+          className="w-full py-4 mt-4 mb-8 text-white rounded-lg font-semibold bg-cover bg-center transition-colors hover:opacity-90 relative overflow-hidden"
           style={{ 
             backgroundImage: `url(${data.image_path})`,
             ...activeBoxStyles // Apply the subtle white shadow and border
@@ -80,7 +80,7 @@ const TimeCapsuleButton = ({ data, open, settled, setOpen, setSettled }) => {
   return (
     <Link href="/ending" className="w-full"> {/* Ensure Link covers the whole button width */}
       <button 
-        className="w-full py-4 mb-4 text-white rounded-lg font-semibold bg-cover bg-center transition-colors hover:opacity-90"
+        className="w-full py-4 mt-4 mb-8 text-white rounded-lg font-semibold bg-cover bg-center transition-colors hover:opacity-90"
         style={{ 
           backgroundImage: `url(${data.image_path})`,
           ...activeBoxStyles // Apply the subtle white shadow and border

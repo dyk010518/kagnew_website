@@ -1,16 +1,16 @@
 [
   {
     "location": "The War Memorial of Korea (전쟁기념관)",
-    "question": "Find the large 'Statue of Brothers,' which depicts two soldiers from the North and South embracing on the battlefield. Look closely at the cracked dome they are standing on. What is the last name engraved in English on the bronze plaque dedicated to Major General William F. Dean, located directly on the back of this dome?",
-    "answer_choices": ["Smith", "Walker", "Dean", "MacArthur"],
+    "question": "Find the large 'Statue of Brothers,' which depicts two soldiers from the North and South embracing on the battlefield. Look closely at the cracked dome they are standing on. What is the last name engraved in English on the bronze plaque dedicated to Major General William F. ___, located directly on the back of this dome?",
+    "answer_choices": ["Smith", "Walker", "MacArthur", "Dean"],
     "correct_answer": "Dean",
-    "reward": "Correct. A name etched in stone, a story of leadership. Now, go to a place where hundreds of thousands of such stories rest in eternal silence.",
+    "reward": "Correct. A name engraved in stone, a story of leadership. Now, go to a place where hundreds of thousands of such stories rest in eternal silence.",
     "image_path": "/button_images/image_0.png"
   },
   {
     "location": "Seoul National Cemetery (서울현충원)",
     "question": "Enter the Memorial Hall beneath the large Memorial Tower. Inside, you will find stone tablets with the names of the missing. On the circular wall behind the central incense burner, there is a large, engraved mural depicting scenes of battle. In the very center of this mural, what is the soldier in the foreground holding in his right hand?",
-    "answer_choices": ["A flag", "A rifle with a bayonet", "A bugle", "A map"],
+    "answer_choices": ["A rifle with a bayonet", "A flag", "A bugle", "A map"],
     "correct_answer": "A rifle with a bayonet",
     "reward": "Correct. A weapon of war, now a memory in stone. This soldier fought for the city you stand in. Your next destination was a critical point of division and desperation in that fight.",
     "image_path": "/button_images/image_1.png"
@@ -27,7 +27,7 @@
   {
     "location": "Seoul Plaza (서울광장)",
     "question": "Stand in the center of the grassy Seoul Plaza, facing the new City Hall building. Carefully search the plaza grounds for a small, square bronze plaque on the ground that marks the historical location of City Hall's cornerstone. What is the first date (Year, Month, Day) written on this plaque?",
-    "answer_choices": ["1919. 3. 1", "1945. 8. 15", "1926. 8. 31", "1950. 6. 25"],
+    "answer_choices": ["1919. 3. 1","1926. 8. 31", "1945. 8. 15", "1950. 6. 25"],
     "correct_answer": "1926. 8. 31",
     "reward": "Correct! You have found the footprint of history beneath the feet of the present. For your final destination, look up. Ascend the mountain that watches over this plaza and holds a beacon for all of Seoul.",
     "image_path": "/button_images/image_3.png"

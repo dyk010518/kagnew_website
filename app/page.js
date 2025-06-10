@@ -5,6 +5,7 @@ import StartButton from '@/components/StartButton';
 import Image from 'next/image';
 import { Montserrat } from 'next/font/google';
 import { motion } from 'framer-motion'; // Import motion from framer-motion
+import Title from '@/components/Title';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -31,21 +32,17 @@ export default function Page() {
 
       {/* Main content, layered above the stars */}
       <main className={`relative z-10 flex min-h-screen flex-col bg-gradient-to-b from-[#011627]/80 to-[#010f18]/80 text-white px-6 py-12 ${montserrat.variable}`}>
-        <div className="flex flex-col items-center justify-center max-w-md mx-auto w-full mt-16">
+        <div className="flex flex-col items-center justify-center max-w-xl mx-auto w-full mt-16">
 
-          {/* Title with fade-in and slight upward movement */}
-          <motion.h1
+          <motion.div
             variants={fadeInRise}
             initial="initial"
             animate="animate"
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }} // Animation duration, ease, and initial delay
-            className={`font-montserrat text-4xl sm:text-5xl lg:text-6xl font-extrabold text-center tracking-tight mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 animate-pulse-slow title-subtle-glow`}
           >
-            Kagnew <br/> Scavenger Hunt
-          </motion.h1>
+            <Title />
+          </motion.div>
 
-          {/* Start Button with fade-in and slight upward movement */}
-          {/* Wrap StartButton in a motion.div to apply shared animation logic */}
           <motion.div
             variants={fadeInRise}
             initial="initial"

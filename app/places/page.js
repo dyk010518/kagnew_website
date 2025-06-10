@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import PlaceButton from "@/components/PlaceButton";
 import TimeCapsureButton from "@/components/TimeCapsureButton";
+import Title from "@/components/Title";
 
 export default function PlacesPage() {
   const [placeOneOpen, openPlaceOne] = useState(true); // always unlocked
@@ -62,14 +62,12 @@ export default function PlacesPage() {
       <div className="text-white flex flex-col items-center p-4">
         {/* Logo */}
         <div className="w-full max-w-xs mt-6 mb-8">
-          <div className="w-full aspect-[3/1] bg-gray-700 rounded-lg flex items-center justify-center">
-            <span className="text-gray-300 text-lg">Logo Placeholder</span>
-          </div>
+          <Title />
         </div>
 
         {/* Buttons */}
         {placeData.length > 0 && (
-          <div className="w-full space-y-8 max-w-md">
+          <div className="w-full space-y-4 max-w-md">
             {placeData.slice(0, -1).map((data, index) => (
               <PlaceButton
                 key={index}

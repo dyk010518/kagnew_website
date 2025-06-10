@@ -18,7 +18,9 @@ const ResultComponent = ({ data, answer, correctAnswer, setOpenQuiz, setShowResu
   const [isExiting, setIsExiting] = useState(false);
 
   const handleAnimationComplete = () => {
-    if (isExiting) setFocusedIndex(-1);
+    // Note: setFocusedIndex is not defined in this snippet.
+    // If it's meant to be here, please ensure it's passed via props or defined within the component.
+    // if (isExiting) setFocusedIndex(-1);
   };
 
   const handleGoBack = () => {
@@ -52,24 +54,24 @@ const ResultComponent = ({ data, answer, correctAnswer, setOpenQuiz, setShowResu
           {answer === correctAnswer ? (
             <div className="mb-8">
               <div className="text-6xl mb-4">🎉</div>
-              <h2 className="text-3xl font-bold text-green-400 mb-6">Correct!</h2>
-              <div className="text-xl text-white bg-green-600 bg-opacity-20 border border-green-400 rounded-lg p-6 max-w-md">
+              <h2 className="text-2xl font-bold text-green-400 mb-6">Correct!</h2>
+              <div className="text-md text-white bg-green-600 bg-opacity-20 border border-green-400 rounded-lg p-6 max-w-md">
                 {data.reward}
               </div>
             </div>
           ) : (
             <div className="mb-8">
               <div className="text-6xl mb-4">❌</div>
-              <h2 className="text-3xl font-bold text-red-400 mb-6">Incorrect!</h2>
-              <div className="text-lg text-white bg-red-600 bg-opacity-20 border border-red-400 rounded-lg p-6 max-w-md">
-                <p>Try again!</p>
+              <h2 className="text-2xl font-bold text-red-400 mb-6">Incorrect!</h2>
+              <div className="text-md text-white bg-red-600 bg-opacity-20 border border-red-400 rounded-lg p-6 max-w-md">
+                <p>Are you sure you're at the right palce? <br/> Try again!</p>
               </div>
             </div>
           )}
         </div>
 
-        {/* Bottom center button */}
-        <div className="flex justify-center pb-0">
+        {/* Bottom center button - Added pb-8 here */}
+        <div className="flex justify-center pb-8"> {/* Changed pb-0 to pb-8 */}
           <button
             className="px-8 py-4 bg-purple-600 text-white rounded-lg font-semibold hover:bg-pink-500 transition-colors"
             onClick={() => handleGoBack()}
