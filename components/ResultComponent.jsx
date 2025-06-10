@@ -39,15 +39,33 @@ const ResultComponent = ({ data, answer, correctAnswer, setOpenQuiz, setShowResu
       transition={{ delay: 0.2, duration: 1 }}
     >
       <motion.div
-        className="absolute bg-[#010f18] border-2 border-primary-500 p-6 w-3/4 top-32 bottom-32 overflow-hidden flex flex-col"
+        className="absolute bg-[#010f18] border-2 border-primary-500 w-3/4 top-32 bottom-32 overflow-y-auto overflow-x-hidden flex flex-col"
         variants={cardVariants}
         initial="initial"
         animate={isExiting ? 'exit' : 'animate'}
         transition={{ duration: 1 }}
       >
+        <div className="p-6 flex flex-col min-h-full">
         {/* Content area - grows to fill available space */}
-        <div className="flex-1">
-          {/* Your content goes here */}
+        <div className="flex-1 flex flex-col items-center justify-center text-center">
+          {/* Result Message */}
+          {answer === correctAnswer ? (
+            <div className="mb-8">
+              <div className="text-6xl mb-4">🎉</div>
+              <h2 className="text-3xl font-bold text-green-400 mb-6">Correct!</h2>
+              <div className="text-xl text-white bg-green-600 bg-opacity-20 border border-green-400 rounded-lg p-6 max-w-md">
+                {data.reward}
+              </div>
+            </div>
+          ) : (
+            <div className="mb-8">
+              <div className="text-6xl mb-4">❌</div>
+              <h2 className="text-3xl font-bold text-red-400 mb-6">Incorrect!</h2>
+              <div className="text-lg text-white bg-red-600 bg-opacity-20 border border-red-400 rounded-lg p-6 max-w-md">
+                <p>Try again!</p>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Bottom center button */}
@@ -58,6 +76,7 @@ const ResultComponent = ({ data, answer, correctAnswer, setOpenQuiz, setShowResu
           >
             Go Back
           </button>
+        </div>
         </div>
       </motion.div>
     </motion.div>
