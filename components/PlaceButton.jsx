@@ -1,18 +1,19 @@
 import Link from 'next/link';
 import QuizComponent from './QuizComponent';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-const PlaceButton = ({ data, open, setCorrect}) => {
+const PlaceButton = ({ data, open, setCorrect }) => {
   const [openQuiz, setOpenQuiz] = useState(false);
 
   return (
     <>
       {open ? (
         <button 
-          className="w-full py-4 mb-4 bg-purple-600 text-white rounded-lg font-semibold hover:bg-pink-500 transition-colors"
+          className="w-full py-4 mb-4 text-white rounded-lg font-semibold bg-cover bg-center transition-colors hover:opacity-90"
+          style={{ backgroundImage: `url(${data.image_path})` }}
           onClick={() => setOpenQuiz(true)}
         >
-          {data.location}
+          <div className="bg-black bg-opacity-50 p-2 rounded">{data.location}</div>
         </button>
       ) : (
         <button
@@ -26,7 +27,7 @@ const PlaceButton = ({ data, open, setCorrect}) => {
 
       <QuizComponent data={data} openQuiz={openQuiz} setOpenQuiz={setOpenQuiz} setCorrect={setCorrect} />
     </>
-  )
+  );
 };
 
 export default PlaceButton;
