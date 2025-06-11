@@ -4,9 +4,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Daniel Kim',
-  keywords: 'Daniel, Daniel Kim, Dong Young, Dong Young Kim, MIT, Computer Science, Finance, personal website, portfolio',
-  desctiption: `Daniel Kim's personal website`,
+  title: 'Kagnew Website',
+  desctiption: `Kagnew Scavenger Hunt`,
   icons: {
     icon: "/favicon.ico",
   },
